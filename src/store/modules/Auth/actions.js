@@ -9,10 +9,9 @@ export default {
             const auth = getAuth()
             const email = payload.email
             const actionCodeSettings = {
-                url: 'https://localhost:8080/',
+                url: 'https://localhost:8080',
                 handleCodeInApp: true,
             }
-            // const auth = getAuth();
             await sendSignInLinkToEmail(auth, email, actionCodeSettings)
             window.localStorage.setItem('emailForContacts', email);
         } catch (error) {
@@ -30,7 +29,7 @@ export default {
                 }
                 const result = await signInWithEmailLink(auth, email, window.location.href)
 
-                console.log(result).user
+                console.log(result.user)
             }
 
         } catch (error) {
