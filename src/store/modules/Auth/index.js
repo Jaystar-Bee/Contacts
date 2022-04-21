@@ -5,6 +5,8 @@ import actions from './actions'
 
 export default {
     state: {
+        userId: null,
+        token: null,
         user: null,
     },
     getters: getters,

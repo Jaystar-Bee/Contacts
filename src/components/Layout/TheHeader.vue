@@ -18,20 +18,24 @@
         <i class="fa fa-user"></i> Contact</router-link
       >
     </div>
-    <ul class="flex items-center gap-20 lg:gap-12 md:gap-6 sm:hidden">
+    <ul
+      class="flex items-center gap-20 lg:gap-12 md:gap-6 sm:hidden justify-end"
+    >
       <li>
         <router-link to="/">Home</router-link>
       </li>
       <li>
-        <router-link to="/login">Login</router-link>
+        <router-link to="/login" v-if="!isLogged">Login</router-link>
       </li>
       <li>
-        <router-link to="/friends">Profile</router-link>
+        <router-link to="/friends" v-if="isLogged">Profile</router-link>
       </li>
       <li>
-        <router-link to="/add-friend">Add Friends</router-link>
+        <router-link to="/add-friend" v-if="isLogged">Add Friends</router-link>
       </li>
-      <base-button mode="blue">Logout</base-button>
+      <base-button mode="blue" v-if="isLogged" @click="logout"
+        >Logout</base-button
+      >
     </ul>
     <div class="hidden sm:block mr-4">
       <div
@@ -50,11 +54,11 @@
         @click="changeToggle"
       >
         <i
-          class="fa fa-chevron-down text-white text-2xl font-bold duration-1000"
+          class="fa fa-chevron-down text-black text-2xl font-bold duration-1000"
           v-if="!dropdown"
         ></i>
         <i
-          class="fa fa-chevron-up text-white text-2xl font-bold duration-1000"
+          class="fa fa-chevron-up text-black text-2xl font-bold duration-1000"
           v-else
         ></i>
       </div>
@@ -79,17 +83,23 @@
           <router-link to="/" @click="changeToggle">Home</router-link>
         </li>
         <li>
-          <router-link to="/login" @click="changeToggle">Login</router-link>
+          <router-link to="/login" @click="changeToggle" v-if="!isLogged"
+            >Login</router-link
+          >
         </li>
         <li>
-          <router-link to="/friends" @click="changeToggle">Profile</router-link>
+          <router-link to="/friends" @click="changeToggle" v-if="isLogged"
+            >Profile</router-link
+          >
         </li>
         <li>
-          <router-link to="/add-friend" @click="changeToggle"
+          <router-link to="/add-friend" @click="changeToggle" v-if="isLogged"
             >Add Friends</router-link
           >
         </li>
-        <base-button mode="blue">Logout</base-button>
+        <base-button mode="blue" v-if="isLogged" @click="logout"
+          >Logout</base-button
+        >
       </ul>
     </div>
   </nav>
@@ -102,9 +112,17 @@ export default {
       dropdown: false,
     };
   },
+  computed: {
+    isLogged() {
+      return this.$store.getters.isAuthenticated;
+    },
+  },
   methods: {
     changeToggle() {
       this.dropdown = !this.dropdown;
+    },
+    logout() {
+      this.$store.dispatch("logoutUser");
     },
   },
 };

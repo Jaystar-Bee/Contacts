@@ -6,6 +6,8 @@ export default {
 
         try {
             const userId = context.rootGetters.userId;
+            const token = context.rootGetters.token;
+
             const Id = payload.id;
             const data = {
                 firstName: payload.firstName,
@@ -17,7 +19,7 @@ export default {
                 city: payload.city,
                 country: payload.country
             }
-            const response = await fetch(`https://contacts-8b9b7-default-rtdb.firebaseio.com/contacts/${userId}/${Id}.json`, {
+            const response = await fetch(`https://contacts-8b9b7-default-rtdb.firebaseio.com/contacts/${userId}/${Id}/.json?auth=${token}`, {
                 method: 'PUT',
                 body: JSON.stringify(
                     data
@@ -38,6 +40,7 @@ export default {
     async addContact(context, payload) {
         try {
             const userId = context.rootGetters.userId;
+            const token = context.rootGetters.token;
             const data = {
                 firstName: payload.firstName,
                 lastName: payload.lastName,
@@ -48,7 +51,7 @@ export default {
                 city: payload.city,
                 country: payload.country
             }
-            const response = await fetch(`https://contacts-8b9b7-default-rtdb.firebaseio.com/contacts/${userId}.json`, {
+            const response = await fetch(`https://contacts-8b9b7-default-rtdb.firebaseio.com/contacts/${userId}.json?auth=${token}`, {
                 method: 'POST',
                 body: JSON.stringify({
                     ...data
@@ -68,7 +71,8 @@ export default {
     async setContacts(context) {
         try {
             const userId = context.rootGetters.userId;
-            const response = await fetch(`https://contacts-8b9b7-default-rtdb.firebaseio.com/contacts/${userId}.json`)
+            const token = context.rootGetters.token;
+            const response = await fetch(`https://contacts-8b9b7-default-rtdb.firebaseio.com/contacts/${userId}.json?auth=${token}`)
 
             const responseData = await response.json()
 
@@ -98,9 +102,10 @@ export default {
     async deleteContact(context, payload) {
         try {
             const UserId = context.rootGetters.userId
+            const token = context.rootGetters.token
             const Id = payload.id
 
-            const response = await fetch(`https://contacts-8b9b7-default-rtdb.firebaseio.com/contacts/${UserId}/${Id}.json`,
+            const response = await fetch(`https://contacts-8b9b7-default-rtdb.firebaseio.com/contacts/${UserId}/${Id}.json?auth=${token}`,
                 { method: "DELETE" })
 
             console.log(response)
@@ -114,7 +119,8 @@ export default {
         const Id = payload.id
         try {
             const userId = context.rootGetters.userId;
-            const response = await fetch(`https://contacts-8b9b7-default-rtdb.firebaseio.com/contacts/${userId}/${Id}.json`)
+            const token = context.rootGetters.token;
+            const response = await fetch(`https://contacts-8b9b7-default-rtdb.firebaseio.com/contacts/${userId}/${Id}.json?auth=${token}`)
 
             const responseData = await response.json()
             context.commit('setActiveContact', responseData)

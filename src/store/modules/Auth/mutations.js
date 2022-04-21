@@ -1,8 +1,10 @@
 export default {
-    setUser(state, user) {
-        state.user = user
+    setUser(state, payload) {
+        state.userId = payload.userId
+        state.token = payload.token
     },
     clearUser(state) {
-        state.user = null
+        state.userId = null
+        state.token = null
     }
 }

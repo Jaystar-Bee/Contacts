@@ -1,4 +1,15 @@
 <template>
+  <teleport to="body">
+    <base-dialog fixed v-if="isLoading" message="Login in...">
+      <base-loader> </base-loader>
+    </base-dialog>
+    <base-dialog v-if="!isLoading && success" fixed message="Message sent"
+      ><base-success></base-success
+    ></base-dialog>
+    <base-dialog v-if="error" @close="closeDialog" :message="error"
+      ><base-error></base-error
+    ></base-dialog>
+  </teleport>
   <div class="bg-light-grey py-20 px-10 xs:px-4 md:hidden w-1/2">
     <img src="./../../assets/undraw_my_password_re_ydq7.svg" alt="" />
   </div>
@@ -38,12 +49,38 @@ export default {
     return {
       mode: "signup",
       email: "",
+      isLoading: false,
+      success: false,
+      error: null,
     };
   },
   methods: {
     validateEmail() {},
-    submitForm() {
-      this.$store.dispatch("sendMagicLogin", { email: this.email });
+    closeDialog() {
+      this.error = null;
+    },
+    async submitForm() {
+      try {
+        this.isLoading = true;
+        await this.$store.dispatch("sendMagicLogin", { email: this.email });
+        setTimeout(() => {
+          this.isLoading = false;
+          this.success = true;
+        }, 900);
+        setTimeout(() => {
+          this.success = false;
+          this.isLoading = false;
+        }, 1600);
+      } catch (error) {
+        this.isLoading = false;
+        let err;
+        if (error.code == "auth/network-request-failed") {
+          err = "Check Your Internet Connection";
+        }
+        this.error =
+          err || "Unable to send Email, Please check your Internet Connection";
+      }
+      this.isLoading = false;
     },
   },
 };

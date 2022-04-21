@@ -4,12 +4,12 @@ import authModule from './modules/Auth/index'
 
 export default createStore({
   state: {
-    userId: 'User2',
+    // userId: 'User2',
   },
   getters: {
-    userId(state) {
-      return state.userId
-    }
+    // userId(state) {
+    //   return state.userId
+    // }
   },
   mutations: {
   },
