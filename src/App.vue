@@ -18,8 +18,9 @@ export default {
     TheFooter,
     TheHeader,
   },
-  created() {
-    this.$store.dispatch("tryLogin");
+  async created() {
+    await this.$store.dispatch("tryLogin");
+    this.$router.replace("/friends");
     this.$store.dispatch("autoLogin");
   },
 };

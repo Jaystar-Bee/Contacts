@@ -115,8 +115,9 @@ export default {
     changeToggle() {
       this.dropdown = !this.dropdown;
     },
-    logout() {
-      this.$store.dispatch("logoutUser");
+    async logout() {
+      await this.$store.dispatch("logoutUser");
+      this.$router.replace("/login");
     },
   },
 };
