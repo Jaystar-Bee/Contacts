@@ -1,11 +1,15 @@
-import auth from './../../../firebase'
+// import * as firebase from 'firebase/app'
+import { getAuth } from "firebase/auth";
+
+// import auth from './../../../firebase'  
 import { sendSignInLinkToEmail, isSignInWithEmailLink, signInWithEmailLink } from "firebase/auth";
 export default {
     async sendMagicLogin(context, payload) {
         try {
+            const auth = getAuth()
             const email = payload.email
             const actionCodeSettings = {
-                url: 'https://localhost:8080/login',
+                url: 'https://localhost:8080/',
                 handleCodeInApp: true,
             }
             // const auth = getAuth();
@@ -18,7 +22,7 @@ export default {
 
     async tryLogin() {
         try {
-            // const auth = getAuth();
+            const auth = getAuth();
             if (isSignInWithEmailLink(auth, window.location.href)) {
                 let email = window.localStorage.getItem('emailForContacts');
                 if (!email) {

@@ -5,7 +5,6 @@ import actions from './actions'
 
 export default {
     state: {
-        userId: 'User1',
         user: null,
     },
     getters: getters,

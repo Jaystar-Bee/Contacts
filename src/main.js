@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import './index.css'
+import { initializeApp } from "firebase/app";
 
 
 import BaseButton from './components/UI/BaseButton.vue'
@@ -21,5 +22,16 @@ app.component('base-success', SuccessSignal)
 app.component('base-error', ErrorSignal)
 app.component('list-loader', ListLoader)
 
+const firebaseConfig = {
+    apiKey: "AIzaSyDe7sspDKi4krhDY3Spq-Nm1_RBmFv2_JY",
+    authDomain: "contacts-8b9b7.firebaseapp.com",
+    databaseURL: "https://contacts-8b9b7-default-rtdb.firebaseio.com",
+    projectId: "contacts-8b9b7",
+    storageBucket: "contacts-8b9b7.appspot.com",
+    messagingSenderId: "760745989277",
+    appId: "1:760745989277:web:9ca2759b5b8ca4bb5b7074",
+    measurementId: "G-9YTCC7TWR8"
+};
+initializeApp(firebaseConfig)
 
 app.use(store).use(router).mount('#app')

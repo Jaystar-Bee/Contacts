@@ -3,8 +3,14 @@ import DataModule from './modules/data/index.js'
 import authModule from './modules/Auth/index'
 
 export default createStore({
-
-
+  state: {
+    userId: 'User2',
+  },
+  getters: {
+    userId(state) {
+      return state.userId
+    }
+  },
   mutations: {
   },
   actions: {
