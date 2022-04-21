@@ -24,11 +24,11 @@ export default {
             const auth = getAuth();
             if (isSignInWithEmailLink(auth, window.location.href)) {
                 let email = window.localStorage.getItem('emailForContacts');
-                if (!email) {
+                if (email) {
                     email = window.prompt('Please enter your email')
                 }
                 const result = await signInWithEmailLink(auth, email, window.location.href)
-
+                console
                 console.log(result.user)
             }
 
