@@ -39,6 +39,7 @@
       <div
         class="
           bg-slate-300
+          dark:bg-slate-700
           px-2
           bg-opacity-20
           backdrop-blur-xl
@@ -52,11 +53,25 @@
         @click="changeToggle"
       >
         <i
-          class="fa fa-chevron-down text-black text-2xl font-bold duration-1000"
+          class="
+            fa fa-chevron-down
+            text-black
+            dark:text-white
+            text-2xl
+            font-bold
+            duration-1000
+          "
           v-if="!dropdown"
         ></i>
         <i
-          class="fa fa-chevron-up text-black text-2xl font-bold duration-1000"
+          class="
+            fa fa-chevron-up
+            text-black
+            dark:text-white
+            text-2xl
+            font-bold
+            duration-1000
+          "
           v-else
         ></i>
       </div>
@@ -66,15 +81,17 @@
       <ul
         class="
           bg-white
+          dark:bg-slate-800
           px-8
           py-4
           bg-opacity-50
           backdrop-blur-lg
           rounded-md
+          dark:rounded-none dark:shadow-lg
           shadow-md
           flex flex-col
           gap-6
-          z-20
+          z-50
         "
       >
         <li>

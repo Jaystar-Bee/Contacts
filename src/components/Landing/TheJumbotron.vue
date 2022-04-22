@@ -6,9 +6,9 @@
       sm:mt-10
       container
       flex-1
-      px-36
-      lg:px-14
-      sm:px-10
+      px-52
+      2xl:px-20
+      xl:px-10
       items-center
       justify-between
       md:flex-col-reverse
@@ -17,8 +17,17 @@
       md:gap-10
     "
   >
-    <div class="mt-4">
-      <header class="text-4xl md:text-3xl text-contact-blue mb-6 font-bold">
+    <div class="mt-4 flex-1">
+      <header
+        class="
+          text-4xl
+          md:text-3xl
+          text-contact-blue
+          dark:text-cyan-400
+          mb-6
+          font-bold
+        "
+      >
         <h2>Ensure Your Contact Safety</h2>
       </header>
       <div class="mb-6 text-lg">
@@ -34,7 +43,7 @@
         >
       </div>
     </div>
-    <div class="relative justify-end">
+    <div class="relative justify-end flex-1">
       <div
         class="
           absolute

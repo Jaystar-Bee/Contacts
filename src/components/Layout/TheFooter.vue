@@ -3,6 +3,7 @@
     <div
       class="
         bg-contact-blue bg-opacity-5
+        dark:bg-slate-900
         py-20
         px-36
         flex flex-wrap
@@ -46,11 +47,13 @@
 li a,
 li a:link,
 li a:active {
-  border-bottom: 3px dotted #fff;
-  padding-bottom: 1px;
+  border-bottom: 2px dotted #fff;
+  padding-bottom: 4px;
   width: 100%;
+  letter-spacing: 2px;
 }
 li {
-  margin-bottom: 5px;
+  margin-bottom: 8px;
+  width: 100%;
 }
 </style>

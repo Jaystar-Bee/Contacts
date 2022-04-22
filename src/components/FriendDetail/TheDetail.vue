@@ -25,6 +25,7 @@
         <div
           class="
             bg-white
+            dark:bg-slate-900 dark:text-white
             text-black
             font-bold
             text-lg
@@ -76,7 +77,10 @@
         sm:max-w-md
         xs:max-w-xs
         px-6
+        z-10
+        relative
         bg-white
+        dark:bg-slate-800 dark:shadow-lg
         shadow
         rounded-2xl
         mx-auto
@@ -167,10 +171,10 @@
           justify-evenly
           lg:justify-between
           bg-white
+          dark:bg-slate-800 dark:text-white
           -mt-16
           py-28
           relative
-          -z-10
           px-44
           lg:px-36
           md:px-20
@@ -234,7 +238,18 @@
       </div>
 
       <!--Actions-->
-      <div class="flex justify-center gap-10 pt-16 sm:pt-2 bg-white pb-32">
+      <div
+        class="
+          flex
+          justify-center
+          gap-10
+          pt-16
+          sm:pt-2
+          bg-white
+          dark:bg-slate-800
+          pb-32
+        "
+      >
         <button
           class="
             px-8
@@ -289,9 +304,6 @@ export default {
     };
   },
   computed: {
-    friends() {
-      return this.$store.getters["data/friendList"];
-    },
     femaleProfilePic() {
       return "./../../assets/femaileProfile.webp";
     },

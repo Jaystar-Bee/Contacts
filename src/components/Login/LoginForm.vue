@@ -10,21 +10,24 @@
       ><base-error></base-error
     ></base-dialog>
   </teleport>
-  <div class="bg-light-grey py-20 px-10 xs:px-4 md:hidden w-1/2">
+  <div
+    class="bg-light-grey dark:bg-slate-600 py-20 px-10 xs:px-4 md:hidden w-1/2"
+  >
     <img src="./../../assets/undraw_my_password_re_ydq7.svg" alt="" />
   </div>
-  <div class="py-20 lg:py-12 px-8 xs:px-4 w-1/2 md:w-full">
+  <div class="py-20 lg:py-12 px-8 xs:px-4 w-1/2 md:w-full dark:bg-slate-800">
     <form action="" @submit.prevent="submitForm">
       <h2 class="text-2xl mb-14 font-semibold">Login</h2>
       <div class="flex flex-col text-xl my-6 w-full">
         <label for="email">Email</label>
         <input
           type="email"
-          placeholder="Email..."
+          placeholder="enter your email address"
           class="
             border-2
             w-full
             border-dark-grey
+            dark:text-black
             mt-4
             rounded-md
             focus:border-contact-blue
@@ -63,6 +66,7 @@ export default {
       try {
         this.isLoading = true;
         await this.$store.dispatch("sendMagicLogin", { email: this.email });
+        this.email = ''
         setTimeout(() => {
           this.isLoading = false;
           this.success = true;

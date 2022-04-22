@@ -125,7 +125,7 @@ export default {
             const responseData = await response.json()
             context.commit('setActiveContact', responseData)
         } catch (err) {
-            const error = new Error(err.message || "Couldn't load Your Friend 😢. Check your Internet Connection")
+            const error = new Error(err.message || "Couldn't load Your Friend's details 😢.")
             throw error
         }
     },

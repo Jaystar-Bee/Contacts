@@ -7,7 +7,9 @@
       xl:w-10/12
       xs:w-11/12
       shadow-lg
+      dark:shadow-2xl
       bg-white
+      dark:bg-slate-700
       my-32
       rounded-lg
       overflow-hidden

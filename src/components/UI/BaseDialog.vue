@@ -4,6 +4,7 @@
       class="
         fixed
         top-0
+        z-40
         h-full
         w-full
         bg-slate-500 bg-opacity-25
@@ -14,7 +15,17 @@
   </transition>
   <transition name="content" mode="out-in">
     <div
-      class="absolute bg-white py-10 px-8 top-1/2 message min-w-44"
+      class="
+        absolute
+        z-50
+        dark:bg-slate-800 dark:text-white
+        bg-white
+        py-10
+        px-8
+        top-1/2
+        message
+        min-w-44
+      "
       :class="small"
     >
       <div v-if="!fixed" class="flex justify-end">

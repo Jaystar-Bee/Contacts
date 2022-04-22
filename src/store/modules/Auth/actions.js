@@ -1,5 +1,6 @@
 // import * as firebase from 'firebase/app'
 import { getAuth } from "firebase/auth";
+import router from './../../../router'
 
 // import auth from './../../../firebase'  
 import { sendSignInLinkToEmail, isSignInWithEmailLink, signInWithEmailLink } from "firebase/auth";
@@ -39,7 +40,9 @@ export default {
                 localStorage.setItem('userToken', userToken)
 
                 // console.log(result.user.uid)
-                context.commit('setUser', { userId: userId, token: userToken })
+                await context.commit('setUser', { userId: userId, token: userToken })
+                router.replace('/friends')
+
             }
 
         } catch (error) {

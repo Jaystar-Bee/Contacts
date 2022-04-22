@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-blue-100 bg-opacity-30">
+  <div class="bg-blue-100 dark:bg-slate-600 bg-opacity-30 dark:text-white">
     <the-header></the-header>
     <router-view v-slot="slotProps">
       <transition name="route" mode="out-in">
@@ -20,7 +20,6 @@ export default {
   },
   async created() {
     await this.$store.dispatch("tryLogin");
-    this.$router.replace("/friends");
     this.$store.dispatch("autoLogin");
   },
 };

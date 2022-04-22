@@ -28,6 +28,7 @@
               focus:border-contact-blue
               duration-500
               rounded-xl
+              dark:bg-slate-200 dark:text-black
               text-lg
             "
             :placeholder="friend.firstName ? friend.firstName : 'firstName'"
@@ -53,6 +54,7 @@
               focus:border-contact-blue
               duration-500
               rounded-xl
+              dark:text-black dark:bg-slate-200
               text-lg
             "
             :placeholder="friend.lastName ? friend.lastName : 'lastName'"
@@ -77,6 +79,7 @@
               ring-dark-grey
               focus:border-contact-blue
               duration-500
+              dark:text-black dark:bg-slate-200
               rounded-xl
               text-lg
             "
@@ -102,6 +105,7 @@
               ring-dark-grey
               focus:border-contact-blue
               duration-500
+              dark:text-black dark:bg-slate-200
               rounded-xl
               text-lg
             "
@@ -163,6 +167,7 @@
               focus:border-contact-blue
               duration-500
               rounded-xl
+              dark:bg-slate-200 dark:text-black
               text-lg
             "
             :placeholder="friend.address ? friend.address : 'address'"
@@ -188,6 +193,7 @@
               focus:border-contact-blue
               duration-500
               rounded-xl
+              dark:bg-slate-200 dark:text-black
               text-lg
             "
             :placeholder="friend.city ? friend.city : 'City'"
@@ -212,6 +218,7 @@
               ring-dark-grey
               focus:border-contact-blue
               duration-500
+              dark:text-black dark:bg-slate-200
               rounded-xl
               text-lg
             "

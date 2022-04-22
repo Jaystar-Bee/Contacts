@@ -7,7 +7,7 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: HomeView
+    component: HomeView, alias: '/home'
   },
   { path: '/friends', name: 'Friends', component: (() => import('./../views/UserProfile.vue')), meta: { requiresAuth: true } },
   { path: '/add-friend', name: 'AddFriend', component: (() => import('./../views/AddFriend.vue')), meta: { requiresAuth: true } },
@@ -27,7 +27,7 @@ router.beforeEach((to, from, next) => {
   if (to.meta.requiresAuth && !store.getters.isAuthenticated) {
     next('/login')
   } else if (to.meta.requiresUnauth && store.getters.isAuthenticated) {
-    next('/profile')
+    next('/friends')
   } else {
     next()
   }

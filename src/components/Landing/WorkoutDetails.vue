@@ -13,6 +13,7 @@
       ease-in
       duration-300
       hover:bg-gray-100
+      dark:hover:bg-slate-700 dark:shadow-2xl
     "
   >
     <div class="-mt-20">

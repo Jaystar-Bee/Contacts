@@ -6,7 +6,7 @@
         <base-button
           mode="white"
           id="black"
-          class="font-semibold"
+          class="font-semibold text-white"
           @click="genderFilter('Male')"
           >Male
         </base-button>
@@ -27,7 +27,7 @@
       mode="out-in"
       v-if="!isLoading && friends && hasFriend"
     >
-      <ul class="min-w-full overflow-auto sm:min-w-36">
+      <ul class="w-full overflow-auto sm:min-w-36 mx-auto">
         <h2 class="text-2xl font-bold sm:ml-4 mb-16 sm:mb-10">
           Your Friend List
         </h2>

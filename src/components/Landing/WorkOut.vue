@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-white py-40 sm:py-24" id="about">
+  <section class="bg-white dark:bg-slate-800 py-40 sm:py-24" id="about">
     <div class="flex items-center">
       <h2
         class="

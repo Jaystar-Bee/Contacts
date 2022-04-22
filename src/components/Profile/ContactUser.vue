@@ -8,6 +8,7 @@
           shrink-0
           px-8
           bg-white
+          dark:bg-slate-800 dark:shadow-lg
           rounded-lg
           mb-10
           sm:mb-6

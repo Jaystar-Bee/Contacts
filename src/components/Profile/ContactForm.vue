@@ -26,7 +26,7 @@
               py-2
               ring-dark-grey
               focus:border-contact-blue
-              duration-500
+              duration-500  dark:text-black
               rounded-xl
               text-lg
             "
@@ -53,6 +53,7 @@
               focus:border-contact-blue
               duration-500
               rounded-xl
+              dark:text-black
               text-lg
             "
             placeholder="Bolarinwa"
@@ -77,6 +78,7 @@
               ring-dark-grey
               focus:border-contact-blue
               duration-500
+              dark:text-black
               rounded-xl
               text-lg
             "
@@ -102,6 +104,7 @@
               ring-dark-grey
               focus:border-contact-blue
               duration-500
+              dark:text-black
               rounded-xl
               text-lg
             "
@@ -160,6 +163,7 @@
               ring-dark-grey
               focus:border-contact-blue
               duration-500
+              dark:text-black
               rounded-xl
               text-lg
             "
@@ -186,6 +190,7 @@
               focus:border-contact-blue
               duration-500
               rounded-xl
+              dark:text-black
               text-lg
             "
             placeholder="Ibadan"
@@ -211,6 +216,7 @@
               focus:border-contact-blue
               duration-500
               rounded-xl
+              dark:text-black
               text-lg
             "
             placeholder="Nigeria"
