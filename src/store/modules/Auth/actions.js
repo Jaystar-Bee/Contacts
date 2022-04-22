@@ -10,7 +10,7 @@ export default {
             const auth = getAuth()
             const email = payload.email
             const actionCodeSettings = {
-                url: 'http://localhost:8080/login',
+                url: 'https://phoneup.netlify.app/login',
                 handleCodeInApp: true,
             }
             await sendSignInLinkToEmail(auth, email, actionCodeSettings)
