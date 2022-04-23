@@ -26,7 +26,8 @@
               py-2
               ring-dark-grey
               focus:border-contact-blue
-              duration-500  dark:text-black
+              duration-500
+              dark:text-black
               rounded-xl
               text-lg
             "
@@ -294,6 +295,7 @@ export default {
       this.errorMessage = null;
     },
     async submitForm() {
+      window.scrollTo({ top: 0, behavior: "smooth" });
       this.validateEach();
       if (!this.formValid) {
         this.formValid = true;

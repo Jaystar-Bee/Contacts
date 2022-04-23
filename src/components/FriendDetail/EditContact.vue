@@ -296,6 +296,7 @@ export default {
       }
     },
     async submitForm() {
+       window.scrollTo({top: 0, behavior: 'smooth'})
       this.validateEach();
       if (!this.formValid) {
         this.formValid = true;

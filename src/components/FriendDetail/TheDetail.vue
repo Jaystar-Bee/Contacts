@@ -333,6 +333,7 @@ export default {
     },
     async deleteContact() {
       try {
+        window.scrollTo({ top: 0, behavior: "smooth" });
         this.isLoading = true;
         await this.$store.dispatch("data/deleteContact", {
           id: this.$route.params.id,
