@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import './index.css'
+import './registerServiceWorker'
 import { initializeApp } from "firebase/app";
 
 
@@ -12,6 +13,7 @@ import BaseDialog from './components/UI/BaseDialog.vue'
 import SuccessSignal from './components/UI/SuccessSignal.vue'
 import ErrorSignal from './components/UI/ErrorSignal.vue'
 import ListLoader from './components/UI/ListLoader.vue'
+import './registerServiceWorker'
 
 const app = createApp(App)
 
