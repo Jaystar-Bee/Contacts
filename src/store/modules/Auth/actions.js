@@ -2,7 +2,6 @@
 import { getAuth } from "firebase/auth";
 import router from './../../../router'
 
-// import auth from './../../../firebase'  
 import { sendSignInLinkToEmail, isSignInWithEmailLink, signInWithEmailLink } from "firebase/auth";
 export default {
     async sendMagicLogin(context, payload) {
@@ -11,6 +10,9 @@ export default {
             const email = payload.email
             const actionCodeSettings = {
                 url: 'https://phoneup.netlify.app/login',
+                ///////////////////////////////////
+                //Testing mode for the localhost
+                // url: 'http://localhost:8080/login',
                 handleCodeInApp: true,
             }
             await sendSignInLinkToEmail(auth, email, actionCodeSettings)
@@ -34,10 +36,13 @@ export default {
                 //remove email from localStorage
                 localStorage.removeItem('emailForContacts')
                 //
+                // console.log(result.user)
+                const expiresIn = result.user.stsTokenManager.expirationTime
                 const userId = result.user.uid
                 const userToken = result.user.accessToken
                 localStorage.setItem('userId', userId)
                 localStorage.setItem('userToken', userToken)
+                localStorage.setItem("expiresIn", expiresIn)
 
                 // console.log(result.user.uid)
                 await context.commit('setUser', { userId: userId, token: userToken })
@@ -53,7 +58,12 @@ export default {
     autoLogin(context) {
         const userId = localStorage.getItem('userId')
         const userToken = localStorage.getItem('userToken')
+        const expiresIn = localStorage.getItem('expiresIn')
 
+        if (new Date().getTime() > Number.parseInt(expiresIn)) {
+            context.dispatch('logoutUser')
+            return;
+        }
         context.commit('setUser', { userId: userId, token: userToken })
     },
     logoutUser(context) {
